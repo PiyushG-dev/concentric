@@ -6,7 +6,7 @@ import {
 } from "@refinedev/devtools";
 import React from "react";
 
-export const DevtoolsProvider = (props: React.PropsWithChildren) => {
+export const DevtoolsProvider = (props) => {
   return (
     <DevtoolsProviderBase>
       {props.children}

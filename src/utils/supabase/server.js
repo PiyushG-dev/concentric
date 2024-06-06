@@ -7,10 +7,10 @@ export const createSupabaseServerClient = () => {
 
   return createServerClient(SUPABASE_URL, SUPABASE_KEY, {
     cookies: {
-      get(name: string) {
+      get(name) {
         return cookieStore.get(name)?.value;
       },
-      set(name: string, value: string, options: CookieOptions) {
+      set(name, value, options) {
         try {
           cookieStore.set({ name, value, ...options });
         } catch (error) {
@@ -19,7 +19,7 @@ export const createSupabaseServerClient = () => {
           // user sessions.
         }
       },
-      remove(name: string, options: CookieOptions) {
+      remove(name, options) {
         try {
           cookieStore.set({ name, value: "", ...options });
         } catch (error) {

@@ -1,7 +1,6 @@
-import type { AuthProvider } from "@refinedev/core";
 import { createSupabaseServerClient } from "@utils/supabase/server";
 
-export const authProviderServer: Pick<AuthProvider, "check"> = {
+export const authProviderServer = {
   check: async () => {
     const { data, error } = await createSupabaseServerClient().auth.getUser();
     const { user } = data;
